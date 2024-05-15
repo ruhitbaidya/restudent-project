@@ -1,0 +1,7 @@
+.carousel{
+    position: flex;
+    justify-items: center;
+}
+.bg-image-add{
+    background : url(../assets/home/chef-service.jpg)
+}
