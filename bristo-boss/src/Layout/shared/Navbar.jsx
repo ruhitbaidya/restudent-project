@@ -42,7 +42,7 @@ const Navbar = () => {
         <button className="text-[22px]"><FaShoppingCart /></button>
         <button className="uppercase text-[16px]">SIGN OUT</button>
         <button>
-        <img className="w-[30px] h-[30px]" src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="" />
+        <img className="w-[40px] h-[40px] border-2 rounded-full text-white" src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="" />
         </button>
        </div>
       </div>
