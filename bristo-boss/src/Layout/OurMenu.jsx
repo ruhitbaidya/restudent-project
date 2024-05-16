@@ -7,7 +7,7 @@ const OurMenu = () => {
             <div className="bg-colos-add py-[100px]">
                 <div>
                     <div>
-                        <HeadingSection styles="#fff" subtitle="Check it out" heading="FROM OUR MENU"></HeadingSection>
+                        <HeadingSection styles="200" subtitle="Check it out" heading="FROM OUR MENU" />
                     </div>
                     <div className="grid grid-cols-2 gap-[30px] items-center p-[50px]">
                         <div className="flex justify-center items-center">

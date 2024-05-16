@@ -1,16 +1,12 @@
-import "./styleSlider.css";
 
-const SheafServices = () => {
+const SheafServices = ({image, title, desc, colorsfind, textcolor}) => {
   return (
-    <div className="my-[100px]">
-      <div className="bg-image-add py-[100px] px-[80px]">
-        <div className="py-[40px] px-[100px] bg-white text-center rounded-lg">
-          <h2 className="text-[45px]">Bistro Boss</h2>
+    <div className="mb-[100px]">
+      <div style={{background :`url("${image}")`, backgroundRepeat : "no-repeat", backgroundSize : "cover"}} className="py-[150px] px-[80px]">
+        <div style={{background : `${colorsfind}`}} className={`text-gray-${textcolor} py-[40px] px-[100px] findColors text-center rounded-lg`}>
+          <h2 className="text-[45px]">{title}</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Necessitatibus, libero accusamus laborum deserunt ratione dolor
-            officiis praesentium! Deserunt magni aperiam dolor eius dolore at,
-            nihil iusto ducimus incidunt quibusdam nemo.
+            {desc}
           </p>
         </div>
       </div>
