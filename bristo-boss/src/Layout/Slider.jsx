@@ -10,23 +10,23 @@ import "./styleSlider.css"
 const Slider = () => {
   return (
     <Carousel autoPlay infiniteLoop>
-      <div>
-        <img src={image1} />
+      <div className="h-[480px]">
+        <img className="h-full" src={image1} />
       </div>
-      <div>
-        <img src={image2} />
+      <div className="h-[480px]">
+        <img className="h-full" src={image2} />
       </div>
-      <div>
-        <img src={image3} />
+      <div className="h-[480px]">
+        <img className="h-full" src={image3} />
       </div>
-      <div>
-        <img src={image4} />
+      <div className="h-[480px]">
+        <img className="h-full" src={image4} />
       </div>
-      <div>
-        <img src={image5} />
+      <div className="h-[480px]">
+        <img className="h-full" src={image5} />
       </div>
-      <div>
-        <img src={image6} />
+      <div className="h-[480px]">
+        <img className="h-full" src={image6} />
       </div>
     </Carousel>
   );
