@@ -1,5 +1,5 @@
-
-const OurForum = ({menu, buttons}) => {
+import {Link} from "react-router-dom"
+const OurForum = ({menu, textUrl}) => {
     return (
         <>
             <div>
@@ -20,7 +20,7 @@ const OurForum = ({menu, buttons}) => {
                     }
                 </div>
                 <div className="text-center my-[20px]">
-                    {buttons && <button className="px-[30px] py-[13px] rounded-lg border-b-2 border-gray-700">{buttons}</button>}
+                    {<Link to={`/${textUrl}`}><button className="px-[30px] py-[13px] rounded-lg border-b-2 border-gray-700">ORDER YOUR FAVOURITE FOOD</button></Link>}
                 </div>
             </div>
         </>

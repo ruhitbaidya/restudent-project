@@ -1,0 +1,23 @@
+.react-tabs__tab-list{
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+}
+.react-tabs__tab-list:focus{
+    border: none !important;
+    outline : none !important;
+}
+.react-tabs__tab{
+    border: 0;
+}
+.react-tabs__tab:focus{
+    border : 0;
+}
+.react-tabs__tab--selected{
+    border: 2px solid #000 !important;
+    outline : none !important;
+}
+.react-tabs__tab--selected:focus{
+    border: 0;
+}

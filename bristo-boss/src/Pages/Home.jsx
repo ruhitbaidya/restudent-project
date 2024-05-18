@@ -15,7 +15,7 @@ const Home = () => {
   const [menu] = useDataget();
   const popular = menu.filter((item)=> item.category === "popular")
   return (
-    <div className="container mx-auto">
+    <div>
       <Helmet>
         <title>Home</title>
       </Helmet>

@@ -4,7 +4,7 @@ const useDataget = () => {
     const [menu, setMenu] = useState([]);
     const [loading, setLoading] = useState(true)
     useEffect(()=>{
-        fetch("menu.json")
+        fetch("http://localhost:5000/product")
         .then((res)=> res.json())
         .then((data)=> {
             setLoading(false)
