@@ -11,7 +11,7 @@ const Navbar = () => {
         <li><NavLink to="/ourShop">Our Shop</NavLink></li>
     </>
   return (
-   <div className="container mx-auto fixed left-0 right-0 z-10">
+   <div className="fixed left-0 right-0 z-10">
       <div className="navbar navColor text-white  ">
       <div className="navbar-start">
         <div className="dropdown">
