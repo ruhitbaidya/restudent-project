@@ -6,6 +6,7 @@ import HeadingSection from "../Layout/shared/HeadingSection";
 import useDataget from "../Layout/shared/useDataget";
 import OurForum from "../Layout/OurForum";
 const Ourment = () => {
+    
     const [menu] = useDataget();
     const offered = menu.filter((item)=> item.category === "offered");
     const dessert = menu.filter((item)=> item.category === "dessert");

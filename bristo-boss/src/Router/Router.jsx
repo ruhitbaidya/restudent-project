@@ -3,6 +3,8 @@ import Main from "../Layout/Main";
 import Home from "../Pages/Home";
 import Ourment from "../Pages/Ourment";
 import ShopNow from "../Pages/ShopNow";
+import Login from "../Pages/Login";
+import Dashboard from "../Pages/Dashboard";
 
 const router = createBrowserRouter([
     {
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
                 element : <ShopNow></ShopNow>
             }
         ]
+    },
+    {
+        path : "/login",
+        element : <Login></Login>
+    },
+    {
+        path : "/dashboard",
+        element : <Dashboard></Dashboard>
     }
 ])
 
