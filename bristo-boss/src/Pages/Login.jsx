@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import {
   loadCaptchaEnginge,
@@ -6,9 +6,15 @@ import {
   validateCaptcha,
 } from "react-simple-captcha";
 import { AiFillProduct } from "react-icons/ai";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+import { contextProvide } from "../AuthContext/UserContext";
+import Provideruser from "../Layout/shared/userProvider";
 
 const Login = () => {
+  const navigate = useNavigate()
+  const location = useLocation()
+  const {googleLogin} = useContext(contextProvide)
+  const user = Provideruser();
   const [diss, setdisa] = useState(true);
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -23,7 +29,11 @@ const Login = () => {
     console.log(email, password);
   };
 
-  const handelGooleSignIn = () => {};
+  const handelGooleSignIn = () => {
+    googleLogin()
+    .then(()=> navigate(location.state || "/"))
+    .catch(data => console.log(data))
+  };
   const handelCaptcha = ()=>{
     if(validateCaptcha(textRef.current.value)){
         setdisa(false)
@@ -31,6 +41,7 @@ const Login = () => {
         setdisa(true)
     }
   }
+  console.log(user)
   return (
     <>
       <section className="dark:bg-gray-900">
@@ -93,7 +104,7 @@ const Login = () => {
                     type="text"
                     ref={textRef}
                     className="block w-full px-5 py-3  border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                    placeholder="Password"
+                    placeholder="enter text"
                   />
                 </div>
                 <button onClick={handelCaptcha}>Match</button>

@@ -3,9 +3,16 @@ import { FaShoppingCart } from "react-icons/fa";
 import { RiMenuUnfold4Line2 } from "react-icons/ri";
 import "./style.css";
 import GetProduct from "./GetProduct";
+import { useContext } from "react";
+import { contextProvide } from "../../AuthContext/UserContext";
 const Navbar = () => {
+  const {logOut, user} = useContext(contextProvide)
   const [data] = GetProduct();
-  console.log(data)
+  const handelLogout = ()=>{
+    logOut()
+    .then((res)=> console.log(res))
+  }
+
   const link = (
     <>
       <li>
@@ -55,25 +62,38 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 uppercase">{link}</ul>
         </div>
         <div className="navbar-end">
-          <div className="flex items-center gap-[25px]">
+          {
+            user ? <>
+            <div className="flex items-center gap-[25px]">
             <div className="indicator">
               <span className="indicator-item badge badge-secondary">{data.length}</span>
-              <Link to="/dashboard">
+              <Link to="/dashboard/manageBooking">
               <button className="text-[35px]">
                 <FaShoppingCart />
               </button>
               </Link>
             </div>
 
-            <button className="uppercase text-[16px]">SIGN OUT</button>
+            <button onClick={handelLogout} className="uppercase text-[16px]">SIGN OUT</button>
             <button>
               <img
                 className="w-[40px] h-[40px] border-2 rounded-full text-white"
-                src="https://avatars.githubusercontent.com/u/66218442?v=4"
+                src={user?.photoURL}
                 alt=""
               />
             </button>
           </div>
+            </> : <>
+            <div className="flex items-center gap-[25px]">
+                       <Link to="/login">
+            <button className="uppercase text-[16px]">SIGN IN</button>
+            </Link>
+           
+          </div>
+            
+            </>
+          }
+        
         </div>
       </div>
     </div>

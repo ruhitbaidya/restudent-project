@@ -4,8 +4,9 @@ import SheafServices from '../Layout/sheafServices';
 import banner2 from "../assets/shop/banner2.jpg"
 import useDataget from '../Layout/shared/useDataget';
 import OurShop from '../Layout/shared/OurShop';
-import { useEffect, useState } from 'react';
+import {useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+
 const ShopNow = () => {
   const [tabIndex, setTabIndex] = useState(0);
     const [menu] = useDataget();
@@ -24,7 +25,6 @@ const ShopNow = () => {
   return (
     <>
 <SheafServices textcolor="200" image={banner2} title="OUR SHOP" desc="Would you like to try a dish?" colorsfind="rgba(36, 34, 34, 0.623)"></SheafServices>
-
 <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
     <TabList>
       <Tab>Salad</Tab>
