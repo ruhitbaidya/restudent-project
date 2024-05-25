@@ -34,6 +34,13 @@ const provider = new GoogleAuthProvider()
           .catch((err)=>{
             console.log(err)
           })
+
+          fetchdata.post("/jwtCreate", {email : person.email})
+          .then((res)=> {
+            console.log(res.data)
+            const striData = JSON.stringify(res.data);
+            localStorage.setItem("token", striData)
+          })
         }
     })
     return ()=>{

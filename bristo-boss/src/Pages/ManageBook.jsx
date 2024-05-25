@@ -1,9 +1,37 @@
-
+import GetProduct from "../Layout/shared/GetProduct";
 
 const ManageBook = () => {
+  const [card] = GetProduct();
+  console.log(card);
   return (
-    <div>ManageBook</div>
-  )
-}
+    <div>
+      <div className="overflow-x-auto">
+        <table className="table">
+          {/* head */}
+          <thead>
+            <tr>
+              <th>Count</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {card.map((item, ind)=>{
+              return <tr key={item._id}>
+              <th>{ind + 1}</th>
+              <td>{item.name}</td>
+              <td>${item.price}</td>
+              <td>
+                <button>Delete</button>
+              </td>
+            </tr>
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
 
-export default ManageBook
+export default ManageBook;

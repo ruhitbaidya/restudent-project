@@ -7,6 +7,7 @@ const OurShop = ({ datas }) => {
   const handelDataFetch = (item) => {
     fetchdata.post("/cards", item).then((res) => {
       if (res.data) {
+        console.log(res.data)
         toast.success("card add successfull");
         refetch();
       }
