@@ -7,7 +7,7 @@ export const contextProvide = createContext(null);
 const UserContext = ({ children }) => {
   const fetchdata = Datafetch()
 const [user, setUser] = useState(null)
-const [loading, setLoading] = useState(true);
+const [loading, setLoading] = useState(false);
 const provider = new GoogleAuthProvider()
   const googleLogin = ()=>{
     setLoading(true);
@@ -15,6 +15,7 @@ const provider = new GoogleAuthProvider()
   }
   const logOut = ()=>{
     setUser(null)
+    setLoading(false)
     return signOut(auth)
   }
 

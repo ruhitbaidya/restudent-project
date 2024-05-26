@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import GetProduct from "../Layout/shared/GetProduct";
 
 const ManageBook = () => {
@@ -5,6 +6,11 @@ const ManageBook = () => {
   console.log(card);
   return (
     <div>
+      <div className="flex justify-end">
+        <Link to="/dashboard/payment">
+        <button className="border px-[30px] py-[12px]">Payment</button>
+        </Link>
+      </div>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

@@ -11,6 +11,8 @@ import AddItem from "../Pages/AddItem";
 import ManageItem from "../Pages/ManageItem";
 import Alluser from "../Pages/Alluser";
 import PrivateRouter from "./PrivateRouter";
+import AddImage from "../Pages/AddImage";
+import PaymentsMoney from "../Pages/PaymentsMoney";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,10 @@ const router = createBrowserRouter([
           </PrivateRouter>
         ),
       },
+      {
+        path: "/contact",
+        element: <AddImage></AddImage>,
+      },
     ],
   },
   {
@@ -53,32 +59,64 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>,
+    element: (
+      <PrivateRouter>
+        <Dashboard></Dashboard>
+      </PrivateRouter>
+    ),
     children: [
       {
         path: "/dashboard/adminHome",
-        element: <AdminHome></AdminHome>,
+        element: (
+          <PrivateRouter>
+            <AdminHome></AdminHome>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/dashboard/manageBooking",
-        element: <ManageBook></ManageBook>,
+        element: (
+          <PrivateRouter>
+            <ManageBook></ManageBook>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/dashboard/addItem",
-        element: <AddItem></AddItem>,
+        element: (
+          <PrivateRouter>
+            <AddItem></AddItem>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/dashboard/manageItem",
-        element: <ManageItem></ManageItem>,
+        element: (
+          <PrivateRouter>
+            <ManageItem></ManageItem>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/dashboard/allUser",
-        element: <Alluser></Alluser>,
+        element: (
+          <PrivateRouter>
+            <Alluser></Alluser>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/dashboard/manageBooking",
-        element: <ManageBook></ManageBook>,
+        element: (
+          <PrivateRouter>
+            <ManageBook></ManageBook>
+          </PrivateRouter>
+        ),
       },
+      {
+        path : "/dashboard/payment",
+        element : <PaymentsMoney></PaymentsMoney>
+      }
     ],
   },
 ]);

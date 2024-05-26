@@ -10,7 +10,10 @@ const Alluser = () => {
         .then((res)=> setCard(res.data))
     }, [axiosSecure])
     
-    const admin = true;
+    const handelPremission = (id)=>{
+      axiosSecure.get(`/adminpremission/${id}`)
+      .then((res)=> console.log(res))
+    }
   return (
     <div>
        <table className="table">
@@ -29,7 +32,7 @@ const Alluser = () => {
               <th>{ind + 1}</th>
               <td>{item.name}</td>
               <td>{item.email}</td>
-              <td> {admin ? "Admin" : <button> <RiAdminFill /> </button>} </td>
+              <td> {item.roole === "admin" ? "Admin" : <button onClick={()=> handelPremission(item._id)}> <RiAdminFill /> </button>} </td>
               <td>
                 <button>Delete</button>
               </td>

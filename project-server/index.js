@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
+const stripe = require("stripe")("sk_test_51PKjZzCZsyVMtq3p37xBoJSllTTusf4JHSfcnSyPddAeuxhAfe7mxI2vYqAXeBrR9fZD4ja7fwNhOdfInJpDHmPm00PXwcJmTG")
 const app = express();
 
 app.use(express.json());
@@ -61,7 +62,27 @@ async function run() {
         })
     }
 
+    app.post("/paymentintegreate", async(req, res)=>{
+        const {price} = req.body;
+        const moneys = parseInt(price * 100);
 
+        const paymentIntget = await stripe.paymentIntents.create({
+          amount : moneys,
+          currency : "usd",
+          payment_method_types : ["card"]
+        })
+        res.send({
+          payment : paymentIntget
+        })
+    })
+    app.get("/adminpremission/:id", async(req, res)=>{
+      const ids = {_id : new ObjectId(req.params.id)}
+      const query = {$set : {
+        roole : "admin"
+      }}
+      const result = await userInfos.updateOne(ids, query)
+      res.send(result)
+    } )
     app.get("/review", async (req, res) => {
       try {
         const result = await reviewCollection.find().toArray();
