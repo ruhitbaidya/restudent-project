@@ -64,6 +64,10 @@ async function run() {
 
     app.post("/paymentintegreate", async(req, res)=>{
         const {price} = req.body;
+        console.log(price)
+        if(price === 0){
+          return res.send({message : "Not Complate Your Request"})
+        }
         const moneys = parseInt(price * 100);
 
         const paymentIntget = await stripe.paymentIntents.create({
@@ -72,8 +76,8 @@ async function run() {
           payment_method_types : ["card"]
         })
         res.send({
-          payment : paymentIntget
-        })
+          clientSecret: paymentIntget.client_secret,
+        });
     })
     app.get("/adminpremission/:id", async(req, res)=>{
       const ids = {_id : new ObjectId(req.params.id)}
